@@ -1,0 +1,14 @@
+//
+// Modal
+//
+
+.modal-rounded {
+	border-radius: $modal-content-border-radius !important;	
+}
+
+.modal-exchange {
+	.el-dialog__body {
+		padding-top: 0.5rem;
+	}
+
+}

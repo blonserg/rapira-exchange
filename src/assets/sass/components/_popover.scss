@@ -1,0 +1,91 @@
+//
+// Popover
+//
+
+
+// Base
+.popover {
+    --#{$prefix}popover-header-border-color: #{$popover-header-border-color};
+
+    .popover-header {
+        font-size: $popover-header-font-size;
+        font-weight: $popover-header-font-weight;
+        border-bottom: 1px solid var(--#{$prefix}popover-header-border-color);
+    }
+
+    .popover-dismiss {
+        position: absolute;
+        top: $popover-dissmis-btn-top;
+        right: $popover-dissmis-btn-end;
+        height: $popover-dissmis-btn-size;
+        width: $popover-dissmis-btn-size;
+        @include svg-bg-icon(close, var(--#{$prefix}gray-500)); // todo: revise
+        mask-size: 50%;
+        -webkit-mask-size: 50%;
+
+        &:hover {
+            background-color: var(--#{$prefix}primary);
+        }
+
+        & + .popover-header {
+            padding-right: $popover-body-padding-x + $popover-dissmis-btn-size;
+        }
+    }
+}
+
+.popover-base {
+    background-color: #3F4254;
+    color: white;
+
+    &.el-popover.el-popper {
+        background-color: #3F4254;
+        border-radius: 0.425rem;
+        color: white;
+
+        .el-popper__arrow::before {
+            background-color: #3F4254;
+        }
+    }
+}
+
+.popover-arrow {
+    &::before{
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        z-index: -1;
+        content: " ";
+        transform: rotate(45deg);
+        border-bottom-right-radius: 2px;
+        border: 1px solid var(--el-border-color-light);
+        background: var(--el-bg-color-overlay);
+        border-top-color: transparent!important;
+        border-left-color: transparent!important;
+        bottom: -5px;
+        left: 15px;
+    }
+}
+
+// Inverse
+.popover-inverse {
+    --#{$prefix}popover-bg: var(--#{$prefix}gray-900);
+    --#{$prefix}popover-border-color: var(--#{$prefix}gray-900);
+    --#{$prefix}popover-box-shadow: #{$popover-box-shadow-dark};
+    --#{$prefix}popover-header-color: var(--#{$prefix}gray-200);
+    --#{$prefix}popover-header-bg: var(--#{$prefix}gray-900);
+    --#{$prefix}popover-body-color: var(--#{$prefix}gray-400);
+    --#{$prefix}popover-arrow-border: transparent;
+    --#{$prefix}popover-header-border-color: var(--#{$prefix}gray-800);
+}
+
+@if $enable-dark-mode {
+    @include color-mode(dark) {
+        .popover:not(.popover-inverse) {
+            --#{$prefix}popover-bg: #{$popover-bg-dark};
+            --#{$prefix}popover-border-color: #{$popover-border-color-dark};
+            --#{$prefix}popover-header-bg: #{$popover-bg-dark};
+            --#{$prefix}popover-box-shadow: #{$popover-box-shadow-dark};
+            --#{$prefix}popover-header-border-color: #{$popover-header-border-color-dark};
+        }
+    }
+}

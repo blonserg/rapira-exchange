@@ -1,0 +1,16 @@
+//
+// Floating label
+//
+
+.form-floating {
+  .form-control.form-control-solid {
+      &::placeholder {
+          color: transparent;    
+      }
+  }
+
+  label {
+      padding: 0.7rem 1rem;
+  }
+}
+   

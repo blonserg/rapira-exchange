@@ -1,0 +1,66 @@
+//
+//  Tooltip
+//
+
+
+// Base
+.tooltip {
+    --#{$prefix}tooltip-bg: #{$tooltip-bg-dark};
+    --#{$prefix}tooltip-box-shadow: #{$tooltip-box-shadow-dark};
+    white-space: normal;
+
+    .tooltip-inner {
+        box-shadow: var(--#{$prefix}tooltip-box-shadow);
+    }
+
+    &.tooltop-auto-width {
+       	.tooltip-inner {
+       		white-space: nowrap;
+  			max-width: none;
+        }
+    }
+
+    &.tooltip-inverse {
+        --#{$prefix}tooltip-color: var(--#{$prefix}dark-inverse);
+        --#{$prefix}tooltip-bg: var(--#{$prefix}dark);
+    }
+}
+
+.tooltip-history {
+    position: absolute;
+    background-color: #3F4254;
+    color: white;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 7px solid transparent;
+        border-top-color: #3F4254;
+    }
+
+    &.el-popper {
+        background-color: $gray-800;
+        border: 1px solid $gray-800;
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    &.el-popper.is-light .el-popper__arrow::before {
+        background-color: $gray-800;
+    }
+}
+
+@if $enable-dark-mode {
+    @include color-mode(dark) {
+        .tooltip:not(.tooltip-inverse) {
+            --#{$prefix}tooltip-bg: #{$tooltip-bg-dark};
+            --#{$prefix}tooltip-box-shadow: #{$tooltip-box-shadow-dark};
+        }
+    }
+}

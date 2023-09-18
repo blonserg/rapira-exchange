@@ -1,0 +1,21 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  //"exclude": ["src/components/globalp2p/*.vue", "src/components/globalp2p/**/*"],
+  "compilerOptions": {
+    "strict": false,
+    "noImplicitAny": false,
+    "noEmitOnError": false,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "references": [
+    {
+      "path": "./tsconfig.config.json"
+    }
+  ]
+}
