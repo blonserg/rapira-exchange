@@ -8,7 +8,7 @@ import { RouterView } from "vue-router";
 import { useConfigStore } from "@/stores/config";
 import { useThemeStore } from "@/stores/theme";
 import { useBodyStore } from "@/stores/body";
-import {useBasicRequest} from "@/stores/basicRequests";
+import { useBasicRequest } from "@/stores/basicRequests";
 import { themeConfigValue } from "@/core/helpers/config";
 import { initializeComponents } from "@/core/plugins/keenthemes";
 
@@ -44,7 +44,9 @@ export default defineComponent({
         bodyStore.removeBodyClassName("page-loading");
       });
 
-      localStorage["lang"] ? localStorage["lang"] : localStorage.setItem("lang", "ru");
+      localStorage["lang"]
+        ? localStorage["lang"]
+        : localStorage.setItem("lang", "ru");
     });
   },
 });
