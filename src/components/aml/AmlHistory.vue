@@ -503,6 +503,7 @@ export default defineComponent({
   },
 });
 </script>
+
 <style lang="scss">
 .multiselect_custom {
   .multiselect-options {

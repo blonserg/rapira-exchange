@@ -4,17 +4,17 @@
       <div class="d-flex align-items-baseline px-6 pair-info pair-info-small">
         <div class="pb-8">
           <a
-              href="#"
-              data-kt-menu-trigger="{default:'click', lg:'hover'}"
-              data-kt-menu-attach="parent"
-              data-kt-menu-placement="bottom-start"
-              class="trading-pair-menu"
+            href="#"
+            data-kt-menu-trigger="{default:'click', lg:'hover'}"
+            data-kt-menu-attach="parent"
+            data-kt-menu-placement="bottom-start"
+            class="trading-pair-menu"
           >
             <BurgerSvg />
           </a>
           <div
-              class="menu menu-sub menu-sub-dropdown menu-column fw-semibold py-3 fs-base menu-pairs shadow-lg"
-              data-kt-menu="true"
+            class="menu menu-sub menu-sub-dropdown menu-column fw-semibold py-3 fs-base menu-pairs shadow-lg"
+            data-kt-menu="true"
           >
             <TradingPair />
           </div>
@@ -29,16 +29,16 @@
     </div>
     <div class="grid-book-small">
       <div
-          class="nav nav-stretch fs-4 text-black fw-semobold nav-line-tabs nav-line-tabs border-transparent grid-book-nav"
-          role="tablist"
+        class="nav nav-stretch fs-4 text-black fw-semobold nav-line-tabs nav-line-tabs border-transparent grid-book-nav"
+        role="tablist"
       >
         <div class="nav-item" role="presentation">
           <a
-              id="order-book-small-tab"
-              class="nav-link text-active-dark active m-0 p-0"
-              data-bs-toggle="tab"
-              role="tab"
-              href="#order-book-small"
+            id="order-book-small-tab"
+            class="nav-link text-active-dark active m-0 p-0"
+            data-bs-toggle="tab"
+            role="tab"
+            href="#order-book-small"
           >
             <span class="px-6 py-3 ms-0 fw-bold lh-1 fs-6">Стакан</span>
           </a>
@@ -46,31 +46,29 @@
 
         <div class="nav-item flex-grow-1" role="presentation">
           <a
-              id="order-history-small-tab"
-              class="nav-link text-active-dark p-0 m-0 w-100"
-              data-bs-toggle="tab"
-              role="tab"
-              href="#order-history-small"
+            id="order-history-small-tab"
+            class="nav-link text-active-dark p-0 m-0 w-100"
+            data-bs-toggle="tab"
+            role="tab"
+            href="#order-history-small"
           >
-            <span class="px-6 py-3 ms-0 fw-bold lh-1 fs-6">Последние сделки</span>
+            <span class="px-6 py-3 ms-0 fw-bold lh-1 fs-6"
+              >Последние сделки</span
+            >
           </a>
         </div>
       </div>
       <div class="tab-content">
         <div
-            id="order-book-small"
-            class="py-0 tab-pane active show"
-            role="tabpanel"
+          id="order-book-small"
+          class="py-0 tab-pane active show"
+          role="tabpanel"
         >
           <!--begin::OrderBook-->
           <OrderBook />
           <!--end::OrderBook-->
         </div>
-        <div
-            id="order-history-small"
-            class="py-0 tab-pane"
-            role="tabpanel"
-        >
+        <div id="order-history-small" class="py-0 tab-pane" role="tabpanel">
           <!--begin::OrderHistory-->
           <OrderHistory />
           <!--end::OrderHistory-->
@@ -83,7 +81,7 @@
       <!--end::MyOrders-->
     </div>
   </div>
-  <div >
+  <div>
     <div class="px-0 mt-0 grid-footer-small">
       <!--begin::ActiveOrders-->
       <ActiveOrders />
@@ -99,12 +97,11 @@ import TradingPair from "@/components/exchange/TradingPair.vue";
 import ActiveOrders from "@/components/exchange/ActiveOrders.vue";
 import TVChartContainer from "@/components/exchange/TVChartContainer.vue";
 import MyOrders from "@/components/exchange/MyOrders.vue";
-import {useAuthStore} from "@/stores/auth";
+import { useAuthStore } from "@/stores/auth";
 import PairInfo from "@/components/exchange/PairInfo.vue";
 import BurgerSvg from "@/assets/svg/BurgerSvg.vue";
-import {MenuComponent} from "@/assets/ts/components";
 
-export default ({
+export default {
   name: "ExchangeDesktop",
   components: {
     TVChartContainer,
@@ -115,21 +112,15 @@ export default ({
     MyOrders,
     PairInfo,
     BurgerSvg,
-    MenuComponent,
   },
   setup() {
     const isAuthenticated = useAuthStore().isAuthenticated;
 
     return {
-      isAuthenticated
-    }
+      isAuthenticated,
+    };
   },
-  created() {
-    setTimeout(() => {
-      MenuComponent.reinitialization();
-    }, 1000);
-  },
-});
+};
 </script>
 
 <style scoped>
@@ -142,21 +133,22 @@ export default ({
   margin-right: 5px;
   margin-bottom: 5px;
   background: var(--bs-body-bg);
-  min-width: 330px
+  min-width: 330px;
 }
 .grid-order-small {
   width: 23%;
   background: var(--bs-body-bg);
   margin-bottom: 5px;
 }
-.nav-line-tabs .nav-item .nav-link span{
+.nav-line-tabs .nav-item .nav-link span {
   border-top: 3px solid transparent;
 }
-.nav-line-tabs .nav-item .nav-link.active span
-{
+.nav-line-tabs .nav-item .nav-link.active span {
   border-top: 3px solid var(--bs-primary);
 }
-.nav-line-tabs .nav-item .nav-link.active, .nav-line-tabs .nav-item.show .nav-link, .nav-line-tabs .nav-item .nav-link:hover:not(.disabled) {
+.nav-line-tabs .nav-item .nav-link.active,
+.nav-line-tabs .nav-item.show .nav-link,
+.nav-line-tabs .nav-item .nav-link:hover:not(.disabled) {
   border-bottom: 1px solid transparent;
 }
 .nav-line-tabs .nav-item {
@@ -173,7 +165,7 @@ li::marker {
   color: var(--bs-body-color);
 }
 .trading-pair-menu.show {
-  color: #4281FF;
+  color: #4281ff;
 }
 .pair-info {
   background: var(--bs-body-bg);
@@ -187,7 +179,7 @@ li::marker {
 .pair-info-small {
   margin-bottom: 5px;
 }
-.nav-item-grow .nav-link{
+.nav-item-grow .nav-link {
   flex-grow: 1;
 }
 .nav-item-grow .active {
@@ -206,13 +198,13 @@ li::marker {
   border-bottom: 0;
 }
 .nav::after {
-  content:'';
+  content: "";
   position: absolute;
   bottom: 1px;
   left: 0;
   width: 100%;
   height: 0.8px;
-  background-color: #DDE0E2;
+  background-color: #dde0e2;
 }
 .grid-footer-small {
   margin-bottom: 5px;
